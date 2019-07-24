@@ -13,7 +13,7 @@ UFS的容量型支持NFSv3.0协议，SSD性能型支持NFSv4.0协议。
 
     # yum -y install nfs-utils
 
-#### Step 2. UHost主机挂载, \<ip\>与\<file\_space\>请使用挂载信息中挂载地址的IP与文件系统ID替换。
+#### Step 2. UHost主机挂载, <ip>与<file_space>请使用挂载信息中挂载地址的IP与文件系统ID替换。
 
 ////
 
@@ -35,7 +35,7 @@ CentOS 上挂载方式为:
 
     # yum -y install nfs-utils
 
-#### Step 2. UHost主机挂载, \<ip\>请使用挂载信息中挂载地址的IP替换。
+#### Step 2. UHost主机挂载, <ip>请使用挂载信息中挂载地址的IP替换。
 
 ////
 
@@ -65,7 +65,7 @@ CentOS 上挂载方式为:
 
     $ sudo apt-get install nfs-common
 
-#### Step 2. UHost主机挂载, \<ip\>与\<file\_space\>请使用挂载信息中挂载地址的IP与文件系统ID替换。
+#### Step 2. UHost主机挂载, <ip>与<file_space>请使用挂载信息中挂载地址的IP与文件系统ID替换。
 
     $ sudo mount -t nfs -o nolock <ip>:/<file_space> /mnt
 
@@ -85,7 +85,7 @@ CentOS 上挂载方式为:
 
     $ sudo apt-get install nfs-common
 
-#### Step 2. UHost主机挂载, \<ip\>请使用挂载信息中挂载地址的IP替换。
+#### Step 2. UHost主机挂载, <ip>请使用挂载信息中挂载地址的IP替换。
 
     $ sudo mount -t nfs -o nolock <ip>:/ /mnt
 
