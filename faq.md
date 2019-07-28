@@ -28,14 +28,6 @@
 
 **有**。删除文件系统(UFS)前，您必须卸载UHost主机上的挂载分区。若未卸载会影响UHost主机使用。
 
-#### NFS client挂载文件系统(UFS)报access denied或网络错误 - 53？
-
-请您检查UFS挂载点白名单是否设置。 ![](/storage_cdn/ufs/setup_mount.jpg)
-![](/images/setup_mount_detail.jpg)
-
-具体报错截图如下，分别为linux与windows平台的报错信息： ![](/storage_cdn/ufs/linux_err53.jpg)
-![](/images/win_err53.jpg)
-
 #### Windows Server挂载文件系统(UFS)后没有操作权限？ 
 
 具体报错截图如下（此处错误信息为创建文件时没有权限）：
