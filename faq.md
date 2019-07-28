@@ -4,7 +4,7 @@
 
 #### 每个账户可以创建多少个文件系统(UFS)? 
 
-目前每个账号最大支持创建**5个**UCloud File System (UFS)系统。、
+目前每个账号最大支持创建**5个**UCloud File System (UFS)系统。
 
 #### 文件系统(UFS)最大容量是多少？
 
