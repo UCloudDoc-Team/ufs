@@ -52,15 +52,16 @@
 #### 步骤一、找到注册表项
 打开注册表找到：KEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\ClientForNFS\\CurrentVersion\\Default
 
-
+![](/images/image_faq1.png)
 
 #### 步骤二、新建 AnonymousUid、AnonymousGid
 
+![](/images/image_faq2.png)
 
 #### 步骤三、重启主机并重新挂载文件系统
 挂在完成后在终端 (cmd) 中执行 mount 命令检查 UID、GID的值，如果均为 0 则正常。
 
-
+![](/images/image_faq3.png)
 
 ### 如何修改 NFS 请求并发数(NFS 性能不足)?
 NFS 客户端会对同时允许发起的请求个数进行限制，在众多发行版内核中该默认值通常为 2，由于并发较低会导致客户端能够达到的吞吐较低。为此，单客户端为了提升性能建议修改此参数。
