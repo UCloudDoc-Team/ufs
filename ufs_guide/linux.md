@@ -5,6 +5,7 @@
 #### 步骤一、安装 NFS 客户端
 
 在安装 NFS 客户端之前，请先根据[FAQ](https://docs.ucloud.cn/storage_cdn/ufs/faq)中的『NFS 客户端内核缺陷』一节中的信息，确认使用建议的内核版本，否则主机可能会发生 IO 卡死的现象。
+
 如果是 CentOS 系统的主机，请执行以下命令安装 NFS 客户端：
 
     sudo yum install nfs-utils
