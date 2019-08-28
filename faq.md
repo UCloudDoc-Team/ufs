@@ -73,6 +73,7 @@ NFS 客户端会对同时允许发起的请求个数进行限制，在众多发�
 以 root 权限在命令行执行以下命令(该操作只需在首次安装 NFS 客户端完成后执行一次即可，后续不需多次执行)：
 
     echo "options sunrpc tcp_slot_table_entries=128" >> /etc/modprobe.d/sunrpc.conf
+    
     echo "options sunrpc tcp_max_slot_table_entries=128" >> /etc/modprobe.d/sunrpc.conf
 
 #### 步骤三、挂载文件系统
