@@ -1,42 +1,40 @@
-{{indexmenu_n>2}}
+{{indexmenu_n>4}}
 
-# Windows平台
+# 挂载文件系统(Windows)
 
-nfs客户端建议使用windows 2012及其以上：
+由于当前文件存储 (UFS) 还未支持 SMB 协议，需要在 Windows 上使用文件存储的用户需要使用 NFS 协议。需要注意的是 Windows 上的 NFS 客户端默认只支持 NFSv3(第三方商业软件支持 NFSv4)，所以在 Windows 上目前默认只能使用文件存储容量型产品。
 
-<WRAP center round important 60%> 注：SSD性能型不支持windows平台。 </WRAP>
+推荐使用的系统版本是 Windows 2012 及以上版本，低于该版本的系统对吞吐支持不够(Windows 2008 最大支持的rsize/wsize 仅为 32KB)。
 
-#### Step 1. 打开服务器管理器，选择添加角色。
+#### 步骤一、准备 NFS 服务
+在『Server Manager』中点击『Add roles and features』进入到 特性安装页面。
 
-![](/images/mount.png)
+![](/images/windows1.png)
 
-#### Step 2. 选择文件服务。
+在『Features』标签下勾选 『Client For NFS』特性，点击下一步进行安装。
 
-![](/images/file_service_windows.png)
+![](/images/windows2.png)
+![](/images/windows3.png)
 
-#### Step 3. 选择网络文件系统，进行安装。
+#### 步骤二、挂载文件系统
+下面以挂载点地址为 10.19.255.192:/ufs-tfpexm 为例展示文件系统挂载命令，实际操作时请用您要使用的文件系统的挂载点信息替代示例中的相关参数。
 
-![](/images/nfs.png)
+首先打开终端(cmd),执行如下命令:
 
-#### Step 4. 打开命令行工具执行挂载命令, <ip>与<file_space>请使用挂载信息列表中挂载地址的IP与文件系统ID替换。
+    mount -o sec=sys -o nolock 10.19.255.192:/ufs-tfpexm z:
 
-*\[注\]由于部分windows主机命令行存在差异,请尝试以下2条命令。*
+![](/images/windows4.png)
 
-``` 
-mount -o sec=sys,nolock <ip>:/<file_space> z:    
-mount -o sec=sys –o nolock <ip>:/<file_space> z:   
-```
+挂载成功后终端会给出提示。
 
-#### 参考例子：
+#### 步骤三、调整客户端参数
+首先执行 mount 命令查看 rsize、wsize 是否已经默认设置为 1048576，低于该值将影响客户端的 IO 吞吐。
 
-![](/images/ufs_guide/windows_sample.png) 以上述实例为例,执行到Step 4.
-打开命令行工具执行挂载命令为:
+![](/windows5.png)
 
-``` 
-mount -o sec=sys,nolock 10.19.255.192:/ufs-v1mmpi z:    
-mount -o sec=sys –o nolock 10.19.255.192:/ufs-v1mmpi z:   
-```
+由于默认挂载后 UID、GID=-2，此时如果向文件系统内进行写入、创建目录等操作将被拒绝，如下图：
 
-连接成功后展示：
+![](/images/windows6.png)
 
-![](/images/ufs_guide/windows_ufs.png)
+请按照 [FAQ](/storage_cdn/ufs)中『Windows 系统挂载后无法写入数据』一节进行设置，以获取写入权限。
+
