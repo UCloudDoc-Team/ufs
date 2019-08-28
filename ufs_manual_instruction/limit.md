@@ -1,4 +1,4 @@
-{{indexmenu_n>2}}
+{{indexmenu_n>6}}
 
 # 产品限制
 
@@ -49,7 +49,7 @@
 |协议类型      |不支持的协议和语义 |
 |------------ |------------ |
 |NFSv3        |不支持 lock|
-|NFSv4.0	   |不支持的 Attributes 包括:ACL、WINDOWS_FILE_ATTRIBUTES(HIDDEN、ARCHIVE、SYSTEM)、MIMETYPE、QUOTA\_AVAIL\_HARD、 QUOTA\_AVAIL\_SOFT、QUOTA\_USED、TIME\_BACKUP、TIME\_CREATE； <br /> 不支持 OP 包括：DELEGPURGE、DELEGRETURN、LOOKUPP、OPENATTR； <br />   不支持 Delegation|
+|NFSv4.0	   |不支持的 Attributes 包括:ACL、WINDOWS_FILE_ATTRIBUTES(HIDDEN、ARCHIVE、SYSTEM)、MIMETYPE、QUOTA\_AVAIL\_HARD、 QUOTA\_AVAIL\_SOFT、QUOTA\_USED、TIME\_BACKUP、TIME\_CREATE；不支持 OP 包括：DELEGPURGE、DELEGRETURN、LOOKUPP、OPENATTR；不支持 Delegation|
 
 ### 计费策略
 不支持按需使用，目前您只能通过预先购买容量的方式来使用文件存储。
