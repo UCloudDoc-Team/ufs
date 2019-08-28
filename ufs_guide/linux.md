@@ -1,104 +1,62 @@
 {{indexmenu_n>1}}
 
-# Linux平台
+# 挂载文件系统(Linux)
 
-UFS的容量型支持NFSv3.0协议，SSD性能型支持NFSv4.0协议。  
-目前容量型产品和SSD性能型产品在UHost上挂载UFS系统存在细微的差别,下面分别演示实际操作。
+### 步骤一、安装 NFS 客户端
 
-## Redhat/Centos操作系统
+在安装 NFS 客户端之前，请先根据 FAQ 中的『NFS 客户端内核缺陷』一节中的信息，确认使用建议的内核版本，否则主机可能会发生 IO 卡死的现象。
+如果是 CentOS 系统的主机，请执行以下命令安装 NFS 客户端：
 
-### 容量型：
+    sudo yum install nfs-utils
 
-#### Step 1. 安装NFS client。
+如果是 Ubuntu 系统的主机，请执行以下命令安装 NFS 客户端：
 
-    # yum -y install nfs-utils
+    sudo apt-get install nfs-common
 
-#### Step 2. UHost主机挂载, <ip>与<file_space>请使用挂载信息中挂载地址的IP与文件系统ID替换。
+由于 NFS 客户端默认对同时能够发起的 NFS 请求数进行了限制，默认允许的并发请求数为 2，对于性能影响较大，可以参考 FAQ 章节中的『如何修改 NFS 请求并发数』一节进行修改，以提升性能。
 
-    # mount -t nfs -o nolock,vers=3,tcp <ip>:/<file_space> /mnt
+### 步骤二、挂载文件系统
+由于容量型文件系统和性能型文件系统的挂载点格式有所区别，请您根据『管理挂载点』操作中显示的挂载点信息进行操作。下面以文件系统 ID 为 ufs-dh6tds 的文件系统为例展示挂载操作，假设其挂载点 IP 为 10.8.0.1(实际操作时请用您要使用的文件系统 ID 和挂载点 IP 替代示例中的相关参数)。
 
-#### 参考例子：
+对于容量型(NFSv3)文件系统，请您在希望访问文件系统的主机上执行以下命令进行挂载
 
-![](/images/ufs_guide/linux_type_sata.png) 以上述实例为例,在 Linux
-CentOS 上挂载方式为:
+    sudo mount -t nfs -o nolock,vers=3,proto=tcp,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2,noresvport 10.8.0.1:/ufs-dh6tds /mnt
 
-    # yum install -y nfs-utils
-    # mount -t nfs -o nolock,vers=3,tcp 10.19.255.192:/ufs-v1mmpi /mnt
+对于性能型(NFSv4)文件系统，请您在希望访问文件系统的主机上执行以下命令进行挂载
 
-挂载成功后即可在 /mnt 目录下访问该文件系统数据。
+    sudo mount -t nfs -o vers=4.0,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2,noresvport 10.8.0.1:/ /mnt
 
-### SSD性能型：
+#### 挂载命令中各参数含义介绍如下：
 
-#### Step 1. 安装NFS client。
+|参数/选项名称          |作用描述     |
+|---------|-----------------------------------------------------------------|
+|挂载点	|访问文件系统的入口，UFS 挂载点由一个 IPv4 地址和可选的文件系统 ID 组成。容量型产品需要在 IPv4 地址后添加文件系统 ID 为后缀，性能型则不需要，请见上述示例。|
+|nolock	|使用 NFSv3 协议时，由于 NFSv3 我们不支持 lock 功能，故必须指定该参数告知 NFS 客户端取消对锁机制的支持。|
+|vers	|指定协议版本，由于 NFSv4 有多个子版本，我们目前仅支持 4.0 版本，故必须指定子版本好。如果 NFS 客户端版本较低不支持 vers=4.0 格式，可将vers 选项用 nfsvers=4 替代。|
+|rsize,wsize	|用于指定在和文件存储服务端交互数据时的数据块大小(单位Byte)，建议设置为 1048576。|
+|hard	|指示 NFS 客户端在远端文件存储临时不可服务时，继续向远端进行操作重试，而不是返回错误给上层应用，建议开启该选项，对于一些运行时间长、中断操作成本高的任务能够提升其对网络等方面临时故障的容错性。|
+|timeo	|NFS 客户端在等待向远端文件存储重试请求前等待的时间，单位是 0.1 秒，建议设置值为 600。|
+|retrans	|NFS 客户端对一次请求重试的次数，建议设置为 2。|
+|noresvport	|在网络中断重连时使用新端口，可以降低重连失败的概率，建议开启。|
 
-    # yum -y install nfs-utils
+### 步骤三、查看挂载结果
+挂载命令执行完成后，可以通过执行 mount -l 或者 nfsstat -m 列出当前挂载的文件系统列表，如果有包含需要挂载的文件系统则表示挂载成功。
 
-#### Step 2. UHost主机挂载, <ip>请使用挂载信息中挂载地址的IP替换。
+### 步骤四、设置自动挂载
+我们可以通过在 Linux 系统中配置 /etc/fstab 文件的方式来实现 NFS 文件系统的自动挂载。
+对于容量型文件系统，可在 /etc/fstab 中添加如下内容并保存：
 
-////
+    10.8.0.1:/ufs-dh6tds /mnt nfs vers=3,nolock,proto=tcp,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2,_netdev,noresvport 0 0
 
-    # mount -t nfs -o vers=4.0,tcp <ip>:/ /mnt
+对于性能型文件系统，可在 /etc/fstab 中添加如下内容并保存：
 
-#### 参考例子：
+    10.8.0.1:/ /mnt nfs vers=4.0,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2,_netdev,noresvport 0 0
 
-![](/images/ufs_guide/linux_ufs_ssd.png)
+#### 命令中各参数含义介绍如下：
+|参数/选项名称          |含义描述     |
+|---------|-----------------------------------------------------------------|
+|_netdev	|表示待挂载的文件系统是网络文件系统，防止在网络未准备好之前进行挂载操作导致主机启动卡死。|
+|0(noresvport后第一项)	|非 0 值表示文件系统应由 dump 备份，对于 NAS 服务来说该项为 0。|
+|0(noresvport后第二项)	|表示在开机后是否执行 fsck 操作，由于 UFS 产品由服务端保证数据的持久化和一致性，该选项无须打开。|
 
-以上述实例为例,在 Linux CentOS 上挂载方式为:
 
-``` 
-# yum install -y nfs-utils
-# mount -t nfs -o vers=4.0,tcp 10.10.27.183:/ /mnt
-
-```
-
-<WRAP center round important 60%>
-
-注：SSD性能型文件系统的挂载点地址不需要包含文件系统ID为后缀,这是和容量型挂载的区别。 </WRAP>
-
-## Ubuntu/Debian操作系统
-
-## 容量型：
-
-#### Step 1. 安装NFS client。
-
-    $ sudo apt-get install nfs-common
-
-#### Step 2. UHost主机挂载, <ip>与<file_space>请使用挂载信息中挂载地址的IP与文件系统ID替换。
-
-    $ sudo mount -t nfs -o nolock <ip>:/<file_space> /mnt
-
-#### 参考例子：
-
-![](/images/ufs_guide/linux_type_sata.png) 以上述实例为例,在 Linux
-CentOS 上挂载方式为:
-
-    # sudo apt-get install nfs-common
-    # mount -t nfs -o nolock,vers=3,tcp 10.19.255.192:/ufs-v1mmpi /mnt
-
-挂载成功后即可在 /mnt 目录下访问该文件系统数据。
-
-## SSD性能型：
-
-#### Step 1. 安装NFS client。
-
-    $ sudo apt-get install nfs-common
-
-#### Step 2. UHost主机挂载, <ip>请使用挂载信息中挂载地址的IP替换。
-
-    $ sudo mount -t nfs -o nolock <ip>:/ /mnt
-
-#### 参考例子：
-
-![](/images/ufs_guide/linux_ufs_ssd.png)
-
-以上述实例为例,在 Linux CentOS 上挂载方式为:
-
-``` 
-# sudo apt-get install nfs-common
-# mount -t nfs -o vers=4.0,tcp 10.10.27.183:/ /mnt
-
-```
-
-<WRAP center round important 60%>
-
-注：SSD性能型文件系统的挂载点地址不需要包含文件系统ID为后缀,这是和容量型挂载的区别。 </WRAP>
