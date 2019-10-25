@@ -1,9 +1,9 @@
 # 文件存储 UFS
 
-{{indexmenu_n>0}}
+
 
 文件存储 UCloud File System(UFS)是一款分布式文件系统产品，它能够为运行于 UCloud 公有云、物理云、托管云上的各类主机提供高可用、高可靠、易拓展的文件存储功能。通过 UFS 产品提供的共享存储功能，可以方便地为各类数据备份、serverless、AI 数据分析、高性能 web 站点等应用场景提供强有力的支撑。
 
 **目录**
 
-{{indexmenu>:storage_cdn:ufs#1 | nsort dsort msort}}
+
