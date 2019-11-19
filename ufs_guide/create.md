@@ -23,9 +23,9 @@
 
 由于挂载点也可以通过后续的『挂载点管理』操作进行，所以在创建后也可以点击『以后设置』完成创建操作。
 
-![](/images/create4.png)
+![](/images/create4new.png)
 
 #### 步骤五、创建完成后展示实例列表
 
-![](/images/create5.png)
+![](/images/create5new.png)
 
