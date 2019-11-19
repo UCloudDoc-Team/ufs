@@ -2,7 +2,7 @@
 
 # 挂载文件系统(Windows)
 
-由于当前文件存储 (UFS) 还未支持 SMB 协议，需要在 Windows 上使用文件存储的用户需要使用 NFS 协议。需要注意的是 Windows 上的 NFS 客户端默认只支持 NFSv3(第三方商业软件支持 NFSv4)，所以在 Windows 上目前默认只能使用文件存储容量型产品。
+由于当前文件存储 (UFS) 支持 SMB 协议的工作还未完成，需要在 Windows 上使用文件存储的用户需要使用 NFS 协议。需要注意的是 Windows 上的 NFS 客户端默认只支持 NFSv3(第三方商业软件支持 NFSv4)，但 UFS 已经不再支持新的 NFSv3 实例的创建，如果您目前有需要在 Windows 上使用 UFS 的需求请联系技术支持。
 
 推荐使用的系统版本是 Windows 2012 及以上版本，低于该版本的系统对吞吐支持不够(Windows 2008 最大支持的rsize/wsize 仅为 32KB)。
 
