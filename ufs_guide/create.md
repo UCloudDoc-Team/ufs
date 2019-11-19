@@ -15,7 +15,7 @@
 
 #### 步骤三、创建文件系统
 
-![](/images/create3.png)
+![](/images/create3new.png)
 
 需要注意的是，目前 UFS 支持容量型、性能型两款产品，请您根据业务的使用场景选择合适的产品类型，详情可参考[应用场景](https://docs.ucloud.cn/storage_cdn/ufs/ufs_manual_instruction/application)和[产品限制](https://docs.ucloud.cn/storage_cdn/ufs/ufs_manual_instruction/limit)章节。确认产品细节后点击『确定』并进行支付确认。
 
