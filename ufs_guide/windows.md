@@ -36,5 +36,5 @@
 
 ![](/images/windows6.png)
 
-请按照 [FAQ](https://docs.ucloud.cn/storage_cdn/ufs/faq)中『Windows 系统挂载后无法写入数据』一节进行设置，以获取写入权限。
+请按照 [FAQ](https://docs.ucloud.cn/ufs/faq)中『Windows 系统挂载后无法写入数据』一节进行设置，以获取写入权限。
 
