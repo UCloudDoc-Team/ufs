@@ -49,11 +49,11 @@
 
 #### 步骤四、设置自动挂载
 我们可以通过在 Linux 系统中配置 /etc/fstab 文件的方式来实现 NFS 文件系统的自动挂载。
-对于容量型文件系统，可在 /etc/fstab 中添加如下内容并保存：
+对于 NFSv3 协议的文件系统，可在 /etc/fstab 中添加如下内容并保存：
 
     10.8.0.1:/ufs-dh6tds /mnt nfs vers=3,nolock,proto=tcp,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2,_netdev,noresvport 0 0
 
-对于性能型文件系统，可在 /etc/fstab 中添加如下内容并保存：
+对于 NFSv4 协议的文件系统，可在 /etc/fstab 中添加如下内容并保存：
 
     10.8.0.1:/ /mnt nfs vers=4.0,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2,_netdev,noresvport 0 0
 
