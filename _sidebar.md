@@ -1,4 +1,3 @@
-<div class="sidebar_title icon__ufs"> 文件存储 UFS</div>
 
 * [概览](/ufs/README)
 * 产品简介
