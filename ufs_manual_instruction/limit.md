@@ -26,9 +26,6 @@
 
 **注1：表格中未出现的地域均表示未支持容量型和性能型存储产品。**
 
-**注2：容量型由于历史原因支持过 NFSv3 协议，但 UFS 将不再支持创建新的 NFSv3 协议的实例(已创建的 NFSv3 实例将继续支持访问)。由于 NFSv3
-     协议性能不足和功能缺失(对锁机制支持不够)等原因，我们建议使用 NFSv3 的用户将数据迁移至 NFSv4 协议的文件系统实例。**
-
 ### 单账户配额
 单个账户可创建的文件系统实例个数限制为 100 个。
 
@@ -48,7 +45,6 @@
 ### 协议限制
 |协议类型      |不支持的协议和语义 |
 |------------ |------------ |
-|NFSv3        |NFSv3 协议已经不再支持创建新实例，请使用 NFSv3 协议的文件系统升级至 NFSv4|
 |NFSv4.0	   |不支持的 Attributes 包括:ACL、WINDOWS\_FILE\_ATTRIBUTES(HIDDEN、ARCHIVE、SYSTEM)、MIMETYPE、QUOTA\_AVAIL\_HARD、 QUOTA\_AVAIL\_SOFT、QUOTA\_USED、TIME\_BACKUP、TIME\_CREATE；不支持 OP 包括：DELEGPURGE、DELEGRETURN、LOOKUPP、OPENATTR；不支持 Delegation|
 
 ### 计费策略
