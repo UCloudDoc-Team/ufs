@@ -8,7 +8,7 @@
 ![](/images/image_mount1new.png)
 
 #### 步骤二、设置挂载点所在的 VPC
-选择需要访问该文件系统的主机所在的 VPC和子网(同时支持物理云和私有专区的 VPC)，点击『确定』即完成挂载点设置。默认被选中的 VPC 下所有子网内的主机都可以访问该文件系统。单个文件系统允许设置的挂载点数目是有限的，详情请参见[产品限制](https://docs.ucloud.cn/ufs/ufs_manual_instruction/limit)章节。
+选择需要访问该文件系统的主机所在的 VPC和子网(同时支持物理云和私有专区的 VPC)，点击『确定』即完成挂载点设置。默认被选中的 VPC 下所有子网内的主机都可以访问该文件系统。单个文件系统允许设置的挂载点数目是有限的，详情请参见[产品限制](/ufs/ufs_manual_instruction/limit)章节。
 
 ![](/images/image_mount2.png)
 

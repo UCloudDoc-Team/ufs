@@ -10,9 +10,8 @@
     * [创建文件系统](/ufs/ufs_guide/create)
     * [挂载点管理](/ufs/ufs_guide/mount)
     * [挂载文件系统(Linux)](/ufs/ufs_guide/linux)
-    * [挂载文件系统(Windows)](/ufs/ufs_guide/windows)
 * [其他功能](/ufs/other)
 * [产品价格](/ufs/price)
 * [产品性能](/ufs/performance)
 * [FAQ](/ufs/faq)
-           
+
