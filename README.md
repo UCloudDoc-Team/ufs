@@ -1,7 +1,7 @@
 # 概览
 
 * 产品简介
-    * [产品概述。](/ufs/ufs_manual_instruction/summarize)
+    * [产品概述](/ufs/ufs_manual_instruction/summarize)
     * [产品优势](/ufs/ufs_manual_instruction/advantage)
     * [应用场景](/ufs/ufs_manual_instruction/application)
     * [主要概念](/ufs/ufs_manual_instruction/concept)
