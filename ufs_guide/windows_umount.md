@@ -8,7 +8,7 @@
 ![](/images/mount/windows_mount14.png)
 
 
-### 步骤二、卸载文件系统Kv
+### 步骤二、卸载文件系统
 
 1. 使用以下命令卸载NFS文件系统。
 
