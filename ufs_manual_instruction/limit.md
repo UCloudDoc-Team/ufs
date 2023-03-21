@@ -23,7 +23,7 @@
 |------------ |------------ |
 |NFSv4.0	   |不支持的 Attributes 包括:ACL、WINDOWS\_FILE\_ATTRIBUTES(HIDDEN、ARCHIVE、SYSTEM)、MIMETYPE、QUOTA\_AVAIL\_HARD、 QUOTA\_AVAIL\_SOFT、QUOTA\_USED、TIME\_BACKUP、TIME\_CREATE；不支持 OP 包括：DELEGPURGE、DELEGRETURN、LOOKUPP、OPENATTR；不支持 Delegation|
 |NFSv3	   |不支持ACL和LOCK|
-|SMB	   ||
+|SMB	     |暂不支持创建大小写同名的文件、目录|
 
 ### 计费策略
 不支持按需使用，目前您只能通过预先购买容量的方式来使用文件存储。
