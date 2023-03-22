@@ -85,13 +85,15 @@
 
 1. 登录Windows云主机。
 2. 对于Windows 2016以上的系统，需要配置允许客户端匿名访问，执行以下命令。
-    REG ADD HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\services\LanmanWorkstation\Parameters /f /v AllowInsecureGuestAuth /t REG_DWORD /d 1
+
+        REG ADD HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\services\LanmanWorkstation\Parameters /f /v AllowInsecureGuestAuth /t REG_DWORD /d 1
 
 ### 步骤二、挂载SMB文件系统
 #### 命令行挂载
 
 1. 登录windows主机，打开CMD命令行窗口，执行以下命令挂载SMB文件系统。
-    net use Z: \\18.0.0.1\share
+
+        net use Z: \\18.0.0.1\share
 
 ##### 挂载命令中各参数含义介绍如下：
 |参数/选项名称          |作用描述     |

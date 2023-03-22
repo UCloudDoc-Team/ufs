@@ -26,4 +26,10 @@
 ## SMB
 
 1. 在windows云主机上使用`net use`命令查看SMB文件系统挂载情况，如下图所示。  
-![](/images/mount/windows_umount_smb.png)
+    ![](/images/umount/windows_umount_smb.png)
+
+2. 使用一下命令卸载SMB文件系统
+
+        net use Z: /delete
+        
+    ![](/images/umount/windows_umount_smb2.png)
