@@ -19,8 +19,7 @@
 2. 如果有设置自动挂载任务，还需要删除对应的脚本和挂载任务。  
     a.删除挂载脚本，脚本默认路径：`C:\ProgramData\Microsoft\Windows\Start Menu\Programs\StartUp\auto_mount.bat`。   
 
-    b.删除挂载任务，打开控制面板，点击`系统和安全`，并选择`计划任务`，点击`任务计划程序库`，选中自动挂载NFS文件系统的计划，点击删除即可。  
-    ![](/images/umount/linux_umount2.png)
+    b.删除挂载任务，打开控制面板，点击`系统和安全`，并选择`计划任务`，点击`任务计划程序库`，选中自动挂载NFS文件系统的计划，点击删除即可。
 
 
 ## SMB
