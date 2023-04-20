@@ -20,12 +20,12 @@
 
 ### 步骤一、查看挂载信息
 
-1. 在linux云主机上使用`df -h`命令查看NFS文件系统挂载情况，如下图所示。 
+1. 在linux云主机上使用`df -h`命令查看SMB文件系统挂载情况，如下图所示。 
 ![](/images/umount/linux_umount2.png)
 
 ### 步骤二、卸载文件系统
 
-1. 使用以下命令卸载NFS文件系统。
+1. 使用以下命令卸载SMB文件系统。
 
         umount /media
     
