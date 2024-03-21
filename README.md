@@ -10,8 +10,12 @@
 * 操作指南
     * [创建文件系统](/ufs/ufs_guide/create)
     * [挂载点管理](/ufs/ufs_guide/mount_point)
-    * [挂载文件系统](/ufs/ufs_guide/mount)
-    * [卸载文件系统](/ufs/ufs_guide/umount)
+    * 挂载文件系统
+      * [Linux](/ufs/ufs_guide/linux_mount)
+      * [Windows](/ufs/ufs_guide/windows_mount)
+    * 卸载文件系统
+      * [Linux](/ufs/ufs_guide/linux_umount)
+      * [Windows](/ufs/ufs_guide/windows_umount)
 * [其他功能](/ufs/other)
 * [产品价格](/ufs/price)
 * [产品性能](/ufs/performance)
