@@ -17,7 +17,7 @@
       * [Linux](/ufs/ufs_guide/linux_umount)
       * [Windows](/ufs/ufs_guide/windows_umount)
     * 回收站
-      * [回收站概述](/ufs/ufs_guide/reycle_bin)
+      * [回收站概述](/ufs/ufs_guide/recycle_bin)
 * [其他功能](/ufs/other)
 * [产品价格](/ufs/price)
 * [产品性能](/ufs/performance)
