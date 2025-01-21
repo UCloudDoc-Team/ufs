@@ -24,12 +24,12 @@
 
 <br/>
 
-### 步骤二、挂载NFS文件系统  
-1. 打开`命令提示符`窗口，输入以下命令挂载NFS文件系统。
+### 步骤二、挂载UFS文件系统  
+1. 打开`命令提示符`窗口，输入以下命令挂载UFS文件系统。
 
-        mount -o nolock -o mtype=hard -o timeout=10 \\mountpoint_ip\! Z:
+        mount -o nolock -o mtype=hard -o timeout=10 \\10.0.8.1\! Z:
 
-    请根据控制台NFS文件系统挂载点信息的实际情况，替换命令中的mountpoint_ip，同时挂载到本地的盘符Z也可以根据实际需求替换。
+    请根据UFS文件系统控制台`挂载信息`页面的实际`挂载地址`，替换命令中的`10.0.8.1(只需替换ip)`，同时挂载到本地的盘符Z也可以根据实际需求替换。
 
 2. 挂载成功后，再次执行`mount`命令检查挂载结果。  
     ![](/images/mount/windows_mount4.png)
@@ -39,15 +39,16 @@
 3. 双击`此电脑`图标，查看共享文件系统。在共享文件系统中创建、删除文件\文件夹，确认能否正常使用。
     ![](/images/mount/windows_mount5.png)
 
+如果提示没有权限创建/删除文件，请参考[设置windows挂载权限](/ufs/faq?id=如何解决Windows使用文件系统时，提示没有权限的问题？)章节，设置文件系统权限。
 <br/>
 
-### 步骤三、设置自动挂载NFS文件系统  
+### 步骤三、设置自动挂载UFS文件系统  
 
 1. 在云主机的`C:\ProgramData\Microsoft\Windows\Start Menu\Programs\StartUp`目录下创建挂载脚本`auto_mount.bat`，脚本内容如下。
 
         mount -o nolock -o mtype=hard -o timeout=10 \\mountpoint_ip\! Z:
 
-    请根据控制台NFS文件系统挂载点信息的实际情况，替换命令中的`mountpoint_ip`，同时挂载到本地的`盘符Z`也可以根据实际需求替换。
+    请根据UFS文件系统控制台`挂载信息`页面的实际`挂载地址`，替换命令中的`10.0.8.1(只需替换ip)`，同时挂载到本地的盘符Z也可以根据实际需求替换。
 
 2. 创建挂载任务。  
     a.点击左下角`开始`按钮，打开`控制面板`。  
